@@ -1,0 +1,3 @@
+[submodule "passwd"]
+	path = passwd
+	url = https://pagure.io/passwd.git
