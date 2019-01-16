@@ -19,6 +19,14 @@ Modules).
 
 To use passwd, you should have PAM installed on your system.
 
+%package doc
+Summary:   Documentation for %{name}
+Group:     Documentation
+Requires:  %{name} = %{version}-%{release}
+
+%description doc
+Man page for %{name}.
+
 %prep
 %setup -q -n %{name}-%{version}/%{name}
 %patch1 -p1
@@ -41,8 +49,10 @@ install -m 644 passwd.pamd $RPM_BUILD_ROOT%{_sysconfdir}/pam.d/passwd
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %config(noreplace) %{_sysconfdir}/pam.d/passwd
 %attr(4755,root,root) %{_bindir}/passwd
-%{_mandir}/man1/passwd.1*
 
+%files doc
+%defattr(-,root,root,-)
+%{_mandir}/man1/%{name}.*
