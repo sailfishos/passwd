@@ -50,7 +50,7 @@ install -m 644 passwd.pamd $RPM_BUILD_ROOT%{_sysconfdir}/pam.d/passwd
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %license COPYING
-%config(noreplace) %{_sysconfdir}/pam.d/passwd
+%config %{_sysconfdir}/pam.d/passwd
 %attr(4755,root,root) %{_bindir}/passwd
 
 %files doc
