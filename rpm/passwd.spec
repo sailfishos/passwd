@@ -1,12 +1,11 @@
 Summary: The passwd utility for setting/changing passwords using PAM
 Name: passwd
-Version: 0.79
+Version: 0.80
 Release: 1
 License: BSD or GPLv2+
-Group: System/Base
 URL: https://pagure.io/passwd
 Source: %{name}-%{version}.tar.bz2
-Patch1: passwd-0.79-stdin-length.patch
+Patch0: passwd-0.80-S-output.patch
 Requires: pam >= 1.0.90, /etc/pam.d/system-auth
 BuildRequires: automake
 BuildRequires: glib2-devel, libuser-devel, pam-devel, libuser >= 0.53-1
@@ -21,15 +20,13 @@ To use passwd, you should have PAM installed on your system.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
 
 %description doc
 Man page for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
-%patch1 -p1
+%autosetup -p1 -n %{name}-%{version}/%{name}
 
 %build
 autoreconf -vfi
