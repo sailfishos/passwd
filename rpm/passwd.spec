@@ -3,7 +3,7 @@ Name: passwd
 Version: 0.80
 Release: 1
 License: BSD or GPLv2+
-URL: https://pagure.io/passwd
+URL: https://github.com/sailfishos/passwd
 Source: %{name}-%{version}.tar.bz2
 Patch0: passwd-0.80-S-output.patch
 Requires: pam >= 1.0.90, /etc/pam.d/system-auth
